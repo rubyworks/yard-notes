@@ -1,11 +1,11 @@
-# YARD ShutUp!
+= YARD ShutUp!
 
 Author:: Thomas Sawyer
 License:: MIT
 Copyright:: (c) 2011 Rubyworks, Thomas Sawyer
 
 
-## Description
+== Description
 
 YARD likes to inform us of every line in every file where
 a tag is used it hasn't been explicitly informed shoud
@@ -20,25 +20,25 @@ processed and add a command line option to dump them
 out in detail if so desired.
 
 
-## Resources
+== Resources
 
-[Hompage](http://rubyworks.github.com/yard-shutup)
-[Source Code](http://githubc.com/rubyworks/yard-shutup)
+* [Hompage{http://rubyworks.github.com/yard-shutup}
+* [Source Code]{http://githubc.com/rubyworks/yard-shutup}
 
 
-## Usage
+== Usage
 
     $ yard --plugin shutup ...
 
 
-## Install
+== Install
 
-### RubyGems
+=== RubyGems
 
     $ gem install yard-shutup
 
 
-## Copyright & Licensing
+== Copyright & Licensing
 
 (MIT License)
 
