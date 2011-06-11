@@ -32,33 +32,9 @@ extensions: []
 extra_rdoc_files: 
 - README.md
 files: 
-- Profile
-- site
-- site/doc
-- site/doc/top-level-namespace.html
-- site/doc/YARD.html
-- site/doc/js
-- site/doc/js/app.js
-- site/doc/js/full_list.js
-- site/doc/js/jquery.js
-- site/doc/YARD
-- site/doc/YARD/Docstring.html
-- site/doc/YARD/DocString.html
-- site/doc/frames.html
-- site/doc/_index.html
-- site/doc/class_list.html
-- site/doc/method_list.html
-- site/doc/index.html
-- site/doc/css
-- site/doc/css/full_list.css
-- site/doc/css/common.css
-- site/doc/css/style.css
-- site/doc/file.README.html
-- site/doc/file_list.html
-- README.md
-- lib
+- .ruby
 - lib/yard-shutup.rb
-- Version
+- README.md
 homepage: http://rubyworks.github.com/yard-shutup
 licenses: []
 
