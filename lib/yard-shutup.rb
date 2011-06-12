@@ -7,7 +7,9 @@ module YARD
     # 
     # To add an already created tag object, use `#add_tag`
     #
-    # @TODO This is my tood note, bitch!
+    # @TODO This is my tood note!
+    # @TODO Add command option to turn warnings back on.
+    # @TODO Keep track of auto-defined tags for later listing or template.
     #
     # @param [String] tag_name the tag name
     # @param [String] tag_buf the text attached to the tag with newlines removed.
