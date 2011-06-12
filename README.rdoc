@@ -22,8 +22,8 @@ out in detail if so desired.
 
 == Resources
 
-* [Hompage{http://rubyworks.github.com/yard-shutup}
-* [Source Code]{http://githubc.com/rubyworks/yard-shutup}
+* {Hompage}[http://rubyworks.github.com/yard-shutup]
+* {Source Code}[http://githubc.com/rubyworks/yard-shutup]
 
 
 == Usage
