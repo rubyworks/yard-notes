@@ -1,0 +1,16 @@
+COPYRIGHT NOTICES
+=================
+
+## Yard ShutUp!
+
+Copyright (c) 2011 Thomas Sawyer
+
+Distributed under the terms of the MIT License (see MIT.txt).
+
+
+## YARD
+
+Copyright (c) 2007-2011 Loren Segal
+
+Distributed under the terms of the MIT License (see MIT.txt).
+
