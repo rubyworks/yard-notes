@@ -1,34 +1,34 @@
---- 
-name: yard-shutup
-version: 0.0.1
-title: YARD ShutUp!
-summary: Because some tags are for devops eyes only.
-description: If I want to know about the tags that aren't defined I will ask. So YARD, shut up!
-loadpath: 
-- lib
-requires: 
+---
+source:
+- meta
+authors:
+- name: Trans
+  email: transfire@gmail.com
+copyrights:
+- holder: Rubyworks
+  year: '2011'
+  license: MIT
+requirements:
 - name: yard
-  version: 0+
-  group: []
-
+dependencies: []
+alternatives:
+- dnote
 conflicts: []
+repositories: []
+resources:
+  home: http://rubyworks.github.com/yard-notes
+  code: http://github.com/rubyworks/yard-notes
+extra: {}
+load_path:
+- lib
+revision: 0
+created: '2011-06-11'
+summary: Because some tags are for developers eyes only.
+title: YARD Notes
+version: 0.0.1
+name: yard-notes
+description: ! 'If I want to know about the tags that aren''t defined
 
-replaces: []
-
-engine_check: []
-
-organization: Rubyworks
-contact: trans <transfire@gmail.com>
-copyright: (c) 2011 Thomas Sawyer
-licenses: []
-
-authors: []
-
-maintainers: []
-
-resources: 
-  home: http://rubyworks.github.com/yard-shutup
-  code: http://github.com/rubyworks/yard-shutup
-repositories: {}
-
-spec_version: 1.0.0
+  I will ask. So YARD, shut up!'
+organization: rubyworks
+date: '2012-03-05'

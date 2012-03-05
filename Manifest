@@ -1,4 +1,0 @@
-#!mast .ruby lib [A-Z][A-Z]*
-.ruby
-lib/yard-shutup.rb
-README.rdoc
