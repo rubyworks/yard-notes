@@ -57,7 +57,7 @@ module YARD
       # Lazily produce contents.
       def contents
         @contents ||= (
-          text  = []
+          text  = ["# Developer's Notes"]
           sort  = Hash.new{ |h,k| h[k] = [] }
           dtags = Tags::Library.developers_tags
 
