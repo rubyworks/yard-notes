@@ -18,9 +18,7 @@ module YARD
         # These tags are recorded as "developer's tags" and not
         # displayed in the general documentation.
         #
-        # SINCE: 0.6.0
-        #
-        # Returns [Array<Symbol>] a list of transitive tags.
+        # @return [Array<Symbol>] list of transitive tags
         attr_accessor :developers_tags
       end
 
@@ -32,9 +30,13 @@ module YARD
       def respond_to?(tag_method)
         if md = /_tag$/.match(tag_method.to_s)
           tag_name = md.pre_match
-          Tags::Library.define_tag(tag_name.to_s.capitalize, tag_name)
-          Tags::Library.developers_tags << tag_name.to_sym
-          true
+          if /^[A-Z]+$/ =~ tag_name
+            Tags::Library.define_tag(tag_name.to_s.capitalize, tag_name)
+            Tags::Library.developers_tags |= [tag_name]
+            true
+          else
+            super(tag_method)
+          end
         else
           super(tag_method)
         end
@@ -52,29 +54,38 @@ module YARD
         self.attributes = SymbolHash.new(false)
       end
 
+      # Lazily produce contents.
       def contents
-        text  = []
-        sort  = Hash.new{ |h,k| h[k] = [] }
-        dtags = Tags::Library.developers_tags
+        @contents ||= (
+          text  = []
+          sort  = Hash.new{ |h,k| h[k] = [] }
+          dtags = Tags::Library.developers_tags
 
-        Registry.each do |code_object|
-          code_object.tags.each do |tag|
-            next unless dtags.include?(tag.name)
-            sort[tag.name] << tag
+          Registry.each do |code_object|
+            code_object.tags.each do |tag|
+              next unless dtags.include?(tag.tag_name)
+              sort[tag.tag_name] << tag
+            end
           end
-        end
 
-        sort.each do |name, tags|
-          text << "## #{name}"
-          tags.each do |tag|
-            text << "### #{tag.name}"
+          sort.each do |name, tags|
+            text << "## #{name}"
+            tags.each do |tag|
+              text << "* #{tag.text} (#{tag.object})"
+            end
           end
-        end
 
-        parse_contents(text.join("\n\n"))
+          parse_contents(text.join("\n\n"))
+        )
       end
 
-      # @param [String] data the file contents
+      # This method was taken directly from YARD and change by removing `self.`
+      # from `contents`, so that it can be lazily created.
+      #
+      # @param [String] data
+      #   The file contents
+      #
+      # @return [String] content
       def parse_contents(data)
         retried = false
         cut_index = 0
@@ -97,7 +108,6 @@ module YARD
         end
         data = data[cut_index..-1] if cut_index > 0
         contents = data.join("\n")
-        
         if contents.respond_to?(:force_encoding) && attributes[:encoding]
           begin
             contents.force_encoding(attributes[:encoding])
@@ -105,6 +115,7 @@ module YARD
             log.warn "Invalid encoding `#{attributes[:encoding]}' in #{filename}"
           end
         end
+        return contents
       rescue ArgumentError => e
         if retried && e.message =~ /invalid byte sequence/
           # This should never happen.
@@ -116,8 +127,9 @@ module YARD
         retried = true
         retry
       end
-      contents
+
     end
+
   end
 
   module CLI

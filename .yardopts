@@ -1,8 +1,8 @@
 --title "YARD Notes"
 --readme README.md
 --output-dir web/doc
---private
 --plugin notes
+--private
 lib/*.rb 
 -
 [A-Z]*.*
