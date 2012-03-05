@@ -29,9 +29,6 @@ module YARD
       # If tag is missing then auto-define it.
       #
       # @TODO This is an example.
-      #
-      # @foo This is another example.
-      #
       def respond_to?(tag_method)
         if md = /_tag$/.match(tag_method.to_s)
           tag_name = md.pre_match
@@ -55,9 +52,6 @@ module YARD
         self.attributes = SymbolHash.new(false)
       end
 
-      #
-      #
-      #
       def contents
         text  = []
         sort  = Hash.new{ |h,k| h[k] = [] }
@@ -79,62 +73,53 @@ module YARD
 
         parse_contents(text.join("\n\n"))
       end
-    end
 
-  private
-
-    # This is copied directory from YARD with a single change of removing
-    # `self.` from the front of `contents`.
-    #
-    # @param [String] data the file contents
-    def parse_contents(data)
-      retried = false
-      cut_index = 0
-      data = data.split("\n")
-      data.each_with_index do |line, index|
-        case line
-        when /^#!(\S+)\s*$/
-          if index == 0
-            attributes[:markup] = $1
+      # @param [String] data the file contents
+      def parse_contents(data)
+        retried = false
+        cut_index = 0
+        data = data.split("\n")
+        data.each_with_index do |line, index|
+          case line
+          when /^#!(\S+)\s*$/
+            if index == 0
+              attributes[:markup] = $1
+            else
+              cut_index = index
+              break
+            end
+          when /^\s*#\s*@(\S+)\s*(.+?)\s*$/
+            attributes[$1] = $2
           else
             cut_index = index
             break
           end
-        when /^\s*#\s*@(\S+)\s*(.+?)\s*$/
-          attributes[$1] = $2
-        else
-          cut_index = index
-          break
         end
-      end
-      data = data[cut_index..-1] if cut_index > 0
-
-      contents = data.join("\n")
-      
-      if contents.respond_to?(:force_encoding) && attributes[:encoding]
-        begin
-          contents.force_encoding(attributes[:encoding])
-        rescue ArgumentError
-          log.warn "Invalid encoding `#{attributes[:encoding]}' in #{filename}"
+        data = data[cut_index..-1] if cut_index > 0
+        contents = data.join("\n")
+        
+        if contents.respond_to?(:force_encoding) && attributes[:encoding]
+          begin
+            contents.force_encoding(attributes[:encoding])
+          rescue ArgumentError
+            log.warn "Invalid encoding `#{attributes[:encoding]}' in #{filename}"
+          end
         end
+      rescue ArgumentError => e
+        if retried && e.message =~ /invalid byte sequence/
+          # This should never happen.
+          log.warn "Could not read #{filename}, #{e.message}. You probably want to set `--charset`."
+          contents = ''
+          return
+        end
+        data.force_encoding('binary') if data.respond_to?(:force_encoding)
+        retried = true
+        retry
       end
-    rescue ArgumentError => e
-raise e
-      if retried && e.message =~ /invalid byte sequence/
-        # This should never happen.
-        log.warn "Could not read #{filename}, #{e.message}. You probably want to set `--charset`."
-        contents = ''
-        return
-      end
-      data.force_encoding('binary') if data.respond_to?(:force_encoding)
-      retried = true
-      retry
+      contents
     end
-
-    return contents
   end
 
-  #
   module CLI
     class Yardoc
       alias run_without_notes run

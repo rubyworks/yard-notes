@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 --title "YARD Notes"
+=======
+--title "YARD-Notes"
+>>>>>>> 26d5fc1498532c177f16ce1ed6727894f525e898
 --readme README.md
 --output-dir web/doc
 --private
 --plugin notes
+<<<<<<< HEAD
 lib/*.rb -
+=======
+lib/*.rb 
+-
+>>>>>>> 26d5fc1498532c177f16ce1ed6727894f525e898
 [A-Z]*.*
