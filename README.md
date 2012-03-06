@@ -2,7 +2,7 @@
 
 [Hompage](http://rubyworks.github.com/yard-notes) /
 [Report Issue](http://github.com/rubyworks/yard-notes/issues) /
-[Source Code](http://githubc.com/rubyworks/yard-notes)
+[Source Code](http://github.com/rubyworks/yard-notes) /
 [Mailing List](http://groups.google.com/groups/rubyworks-mailinglist) /
 [IRC Chat](irc://chat.us.freenode.net/rubyworks)
 
