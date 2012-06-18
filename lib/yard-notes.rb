@@ -52,6 +52,8 @@ module YARD
         self.filename   = 'NOTES.md'
         self.name       = 'NOTES'
         self.attributes = SymbolHash.new(false)
+
+        attributes[:markup] = 'markdown'
       end
 
       # Lazily produce contents.
@@ -75,10 +77,13 @@ module YARD
             end
           end
 
-          parse_contents(text.join("\n\n"))
+          #parse_contents(text.join("\n\n"))
+
+          text.join("\n\n")
         )
       end
 
+=begin
       # This method was taken directly from YARD and change by removing `self.`
       # from `contents`, so that it can be lazily created.
       #
@@ -127,6 +132,7 @@ module YARD
         retried = true
         retry
       end
+=end
 
     end
 
