@@ -23,10 +23,12 @@ a great way to make development notes in your code.
 
 Add ALL-CAPS tags to your doumentation. For example:
 
-  @TODO Need to refactor this code.
-  def some_method
-     ...
-  end
+
+    @TODO Need to refactor this code.
+    def some_method
+       . . .
+    end
+
 
 The use yard as usual but add the `--plugin notes` command line
 option.
