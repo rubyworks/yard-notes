@@ -1,7 +1,8 @@
-#!mast .yardopts .ruby bin spec test lib [A-Z]*.*
+#!mast .yardopts .index bin spec test lib *.md *.txt
 .yardopts
-.ruby
+.index
 lib/yard-notes.rb
-Notice.txt
 README.md
+History.md
 License.txt
+Notice.txt
