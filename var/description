@@ -1,4 +1,0 @@
-Normally YARD emits a warning about unrecongnized decoumentaiton tags
-and omits them from output. With YARD Notes, all caps tags will still
-be omitted from the docs, but will be added to a special NOTES file of
-the documentation.

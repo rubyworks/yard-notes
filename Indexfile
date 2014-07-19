@@ -1,0 +1,43 @@
+---
+name:
+  yard-notes
+
+version:
+  0.1.0
+
+title:
+  YARD Notes
+
+summary:
+  Because some tags are for project developers, not API users.
+
+description:
+  Normally YARD emits a warning about unrecongnized decoumentaiton tags
+  and omits them from output. With YARD Notes, all caps tags will still
+  be omitted from the docs, but will be added to a special NOTES file of
+  the documentation.
+
+resources:
+  home: http://rubyworks.github.com/yard-notes
+  code: http://github.com/rubyworks/yard-notes
+  bugs: http://github.com/rubyworks/yard-notes/issues
+  mail: http://groups.google.com/groups/rubyworks-mailinglist
+  chat: irc://chat.us.freenode.net/rubyworks
+
+repositories:
+  upstream: git://github.com/rubyworks/yard-notes.git
+
+alternatives:
+  - dnote
+
+authors:
+  - Trans <transfire@gmail.com>
+
+organization:
+  Rubyworks
+
+created: 
+  2011-06-11
+
+copyrights:
+  - 2011 Rubyworks (MIT)

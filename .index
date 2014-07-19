@@ -1,44 +1,55 @@
 ---
-source:
-- var
+revision: 2013
+type: ruby
+sources:
+- Indexfile
+- Gemfile
 authors:
 - name: Trans
   email: transfire@gmail.com
+organizations:
+- name: Rubyworks
+requirements:
+- version: '>= 0'
+  name: yard
+conflicts: []
+alternatives:
+- dnote
+resources:
+- type: home
+  uri: http://rubyworks.github.com/yard-notes
+  label: Homepage
+- type: code
+  uri: http://github.com/rubyworks/yard-notes
+  label: Source Code
+- type: bugs
+  uri: http://github.com/rubyworks/yard-notes/issues
+  label: Issue Tracker
+- type: mail
+  uri: http://groups.google.com/groups/rubyworks-mailinglist
+  label: Mailing List
+- type: chat
+  uri: irc://chat.us.freenode.net/rubyworks
+  label: IRC Channel
+repositories:
+- name: upstream
+  scm: git
+  uri: git://github.com/rubyworks/yard-notes.git
+categories: []
 copyrights:
 - holder: Rubyworks
   year: '2011'
   license: MIT
-requirements:
-- name: yard
-dependencies: []
-alternatives:
-- dnote
-conflicts: []
-repositories:
-- uri: git://github.com/rubyworks/yard-notes.git
-  scm: git
-  name: upstream
-resources:
-  home: http://rubyworks.github.com/yard-notes
-  code: http://github.com/rubyworks/yard-notes
-  bugs: http://github.com/rubyworks/yard-notes/issues
-  mail: http://groups.google.com/groups/rubyworks-mailinglist
-  chat: irc://chat.us.freenode.net/rubyworks
-extra: {}
-load_path:
-- lib
-revision: 0
-created: '2011-06-11'
-summary: Because some tags are for project developers, not API users.
+customs: []
+paths:
+  lib:
+  - lib
+name: yard-notes
 title: YARD Notes
 version: 0.1.0
-name: yard-notes
-description: ! 'Normally YARD emits a warning about unrecongnized decoumentaiton tags
-
-  and omits them from output. With YARD Notes, all caps tags will still
-
-  be omitted from the docs, but will be added to a special NOTES file of
-
-  the documentation.'
-organization: rubyworks
-date: '2012-03-05'
+summary: Because some tags are for project developers, not API users.
+description: Normally YARD emits a warning about unrecongnized decoumentaiton tags
+  and omits them from output. With YARD Notes, all caps tags will still be omitted
+  from the docs, but will be added to a special NOTES file of the documentation.
+created: '2011-06-11'
+date: '2014-07-19'
